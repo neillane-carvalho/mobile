@@ -24,8 +24,6 @@ const Favoritos = ({ navigation }) => {
           }
         }
 
-        favoriteList.reverse();
-
         setFavoritos(favoriteList);
       } catch (error) {
         console.error('Erro ao obter favoritos:', error);
