@@ -3,10 +3,10 @@
 ## Overview
 The React Native Booklist Project is a mobile application that allows users to create a personalized booklist, favorite books, and add comments. This project is built using React Native, a popular framework for building cross-platform mobile applications.
 
-## Prerequisites
+## Requirements
 Before you can run the project, make sure you have the following installed on your machine:
 
-* Node.js: Download and install Node.js
+* Node.js: Download and [install Node.js](https://nodejs.org/en/download/)
 * npm (Node Package Manager): Installed with Node.js
 * React Native CLI: Install globally using the following command:
 ```bash
@@ -41,11 +41,12 @@ react-native run-android
 2. Favorite Books: Mark books as favorites.
 3. Comments: Add comments to books.
 
-Project Structure
-src/components: ...
-src/screens: ...
-src/navigation: ...
-src/context: ...
+## Project Structure
 
-Acknowledgments
-Special thanks to @SilenioNeto, @silaspassos and @armentanoc for their valuable contributions.
+* src/components: ...
+* src/screens: ...
+* src/navigation: ...
+* src/context: ...
+
+## Acknowledgments
+Special thanks to @SilenioNeto, @silaspassos, @armentanoc and @neillane-carvalho for their valuable contributions.
