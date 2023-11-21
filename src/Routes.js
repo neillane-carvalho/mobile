@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
 import Livro from './pages/Livro'
+import Favoritos from './pages/Favoritos'
 const Stack= createNativeStackNavigator();
 
 export default function Routes(){
@@ -15,6 +16,7 @@ export default function Routes(){
                 <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
                 <Stack.Screen name="Menu" component={Menu} options={{headerShown: false}} />
                 <Stack.Screen name="Livro" component={Livro} options={{headerShown: false}} />
+                <Stack.Screen name="Favoritos" component={Favoritos} options={{headerShown: true}} />
                 
             </Stack.Navigator>
         </NavigationContainer>
