@@ -1,4 +1,4 @@
-# React Native Booklist Project
+# React Native Booklist Project 📚📖
 
 ## Overview
 The React Native Booklist Project is a mobile application that allows users to create a personalized booklist, favorite books, and add comments. This project is built using React Native, a popular framework for building cross-platform mobile applications.
@@ -6,13 +6,13 @@ The React Native Booklist Project is a mobile application that allows users to c
 ## Requirements
 Before you can run the project, make sure you have the following installed on your machine:
 
-* Node.js: Download and [install Node.js](https://nodejs.org/en/download/)
-* npm (Node Package Manager): Installed with Node.js
-* React Native CLI: Install globally using the following command:
+* `Node.js`: Download and [install Node.js](https://nodejs.org/en/download/)
+* `NPM` (Node Package Manager): Installed with Node.js
+* `React Native CLI`: Install globally using the following command:
 ```bash
 npm install -g react-native-cli
 ```
-* Xcode (for iOS development) or Android Studio (for Android development): Follow the instructions on the React Native documentation to set up your development environment.
+* [Expo](https://expo.dev/) mobile app: Tool used in mobile development with React Native that allows access to native APIs of the device withou installing dependencies or altering native code.
 
 ## Getting Started
 Clone the repository to your local machine:
@@ -29,25 +29,62 @@ npm install
 
 ## Running the App on Android
 
-Run the following command inside the app folder:
+1. Run the following command inside the app folder to start metro bundler
 ```bash
 npm start
 ```
-It will start metro bundler. 
-Then, you can scan the QR Code in your Android phone to see the app working. 
+
+2. Download [expo](https://expo.dev/) app on your android phone
+3. Then, you can scan the QR Code in your Android phone to see the app working 
 
 ## Features
 
 1. Booklist Screen: View a list of books.
+    
+    `GIFS of the functionality`
+
 2. Favorite Books: Mark books as favorites.
+
+    `GIFS of the functionality`
+
 3. Comments: Add comments to books.
+
+    `GIFS of the functionality`
 
 ## Project Structure
 
-* src/components: ...
-* src/screens: ...
-* src/navigation: ...
-* src/context: ...
+<!--organize this structure with GPT-->
+    
+`src/pages` 
+
+`src/pages/Favoritos.js` 
+
+`src/pages/Home.js` 
+
+`src/pages/Livro.js` 
+
+`src/pages/Menu.js` 
+
+`src/Routes.js`
+
+### `src/pages` 
+    ... code snippets
+
+### `src/pages/Favoritos.js` 
+    ... code snippets
+
+### `src/pages/Home.js` 
+    ... code snippets
+
+### `src/pages/Livro.js` 
+    ... code snippets
+
+### `src/pages/Menu.js` 
+... code snippets
+
+### `src/Routes.js`
+    ... code snippets
 
 ## Acknowledgments
-Special thanks to @SilenioNeto, @silaspassos, @armentanoc and @neillane-carvalho for their valuable contributions.
+Special thanks to 
+@SilenioNeto, @silaspassos, @armentanoc and @neillane-carvalho for their valuable contributions.
