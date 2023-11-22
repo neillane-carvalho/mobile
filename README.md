@@ -86,5 +86,4 @@ npm start
     ... code snippets
 
 ## Acknowledgments
-Special thanks to 
-@SilenioNeto, @silaspassos, @armentanoc and @neillane-carvalho for their valuable contributions.
+Special thanks to [SilenioNeto](https://github.com/SilenioNeto), [silaspassos](https://github.com/silaspassos), [armentanoc](https://github.com/armentanoc) and [neillane-carvalho](neillane-carvalho) for their valuable contributions.
