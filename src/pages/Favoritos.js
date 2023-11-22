@@ -1,30 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, Button, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-const Menu = ({ navigation }) => {
-  const [livros, setLivros] = useState([]);
+const Favoritos = ({ navigation }) => {
+  const [favoritos, setFavoritos] = useState([]);
 
   useEffect(() => {
-    const obterLivrosDaApi = async () => {
+    const getData = async () => {
       try {
+        var favoriteList = [];
+
         const response = await axios.get('https://api-livros.azurewebsites.net/livros');
         const livrosData = response.data;
-        setLivros(livrosData);
+
+        for (key in livrosData) {
+          const livro = livrosData[key];
+          const userData = await AsyncStorage.getItem(`@livro_data_${livro.id}`);
+          if (userData !== null) {
+            var parsedUserData = JSON.parse(userData);
+            if (parsedUserData.favorito)
+              favoriteList.push(livro);
+          }
+        }
+
+        setFavoritos(favoriteList);
       } catch (error) {
-        console.error('Erro ao obter livros da API:', error);
+        console.error('Erro ao obter favoritos:', error);
       }
     };
 
-    obterLivrosDaApi();
+    getData();
   }, []);
 
   return (
     <ScrollView>
-      {livros.map((livro) => (
+      {favoritos.map((livro) => (
         <View key={livro.id} style={{ padding: 16 }}>
-          <Text>{livro.nome}</Text>
+        <Text>{livro.nome}</Text>
           <Text>Autor: {livro.autor}</Text>
           <Text>Tipo: {livro.tipo}</Text>
           <Button
@@ -39,22 +52,4 @@ const Menu = ({ navigation }) => {
   );
 };
 
-export default Menu;
-
-const styles = StyleSheet.create({
-    imageBackground: {
-      flex: 1,
-      resizeMode: 'cover',
-    },
-    titulo:{
-        color:'white',
-        fontFamily: 'Roboto',
-        fontWeight:'bold',
-        fontSize:30,
-        backgroundColor:'rgba(79, 40, 40, 0.9)',
-    },
-    texto:{
-        color:'white',
-        backgroundColor:'rgba(79, 40, 40, 0.9)',
-    }
-  });
+export default Favoritos;
