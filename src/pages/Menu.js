@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, Button, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
@@ -21,40 +21,86 @@ const Menu = ({ navigation }) => {
   }, []);
 
   return (
-    <ScrollView>
-      {livros.map((livro) => (
-        <View key={livro.id} style={{ padding: 16 }}>
-          <Text>{livro.nome}</Text>
-          <Text>Autor: {livro.autor}</Text>
-          <Text>Tipo: {livro.tipo}</Text>
-          <Button
-            title="Detalhes"
+    <ImageBackground source={require('../../assets/images/bibliotecas.jpeg')} style={styles.imageBackground}>
+      <View style={styles.overlay}>
+        <View style={styles.header}>
+          <TouchableOpacity
+            style={styles.botaoHome}
             onPress={() => {
-              navigation.navigate('Livro', { livroId: livro.id , livroName: livro.nome, livroAutor: livro.autor, livroType: livro.tipo });
+              navigation.navigate('Home');
             }}
-          />
+          >
+            <Text style={styles.botaoHomeTexto}> ↩ </Text>
+          </TouchableOpacity>
+          <Text style={styles.titleText}>Menu de Livros</Text>
         </View>
-      ))}
-    </ScrollView>
+        <ScrollView contentContainerStyle={styles.container}>
+          {livros.map((livro) => (
+            <TouchableOpacity
+              key={livro.id}
+              style={styles.livroContainer}
+              onPress={() => {
+                navigation.navigate('Livro', { livroId: livro.id, livroName: livro.nome, livroAutor: livro.autor, livroType: livro.tipo });
+              }}
+            >
+              <Text style={styles.nomeLivro}>{livro.nome}</Text>
+              <Text>Autor: {livro.autor}</Text>
+              <Text>Tipo: {livro.tipo}</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
+    </ImageBackground>
   );
 };
 
 export default Menu;
 
 const styles = StyleSheet.create({
-    imageBackground: {
-      flex: 1,
-      resizeMode: 'cover',
-    },
-    titulo:{
-        color:'white',
-        fontFamily: 'Roboto',
-        fontWeight:'bold',
-        fontSize:30,
-        backgroundColor:'rgba(79, 40, 40, 0.9)',
-    },
-    texto:{
-        color:'white',
-        backgroundColor:'rgba(79, 40, 40, 0.9)',
-    }
-  });
+  imageBackground: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Opacidade de 0.5
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'white',
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  container: {
+    padding: 16,
+  },
+  livroContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 16,
+    elevation: 2,
+  },
+  nomeLivro: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  botaoHome: {
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  botaoHomeTexto: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
