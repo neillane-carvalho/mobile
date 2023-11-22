@@ -27,13 +27,14 @@ git clone https://github.com/SilenioNeto/mobile.git
 npm install
 ```
 
-## Running the App
+## Running the App on Android
 
-* Android
-Run the app on Android:
+Run the following command inside the app folder:
 ```bash
-react-native run-android
+npm start
 ```
+It will start metro bundler. 
+Then, you can scan the QR Code in your Android phone to see the app working. 
 
 ## Features
 
